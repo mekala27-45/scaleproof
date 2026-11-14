@@ -1,0 +1,5 @@
+export type Plan={schema_version:number;low_rps:number;high_rps:number;duration_seconds:number;warmup_seconds:number;high_start_seconds:number;high_end_seconds:number;min_replicas:number;max_replicas:number;request_timeout_seconds:number};
+export type Check={decision:string;rules:{rule:string;passed:boolean;message:string}[];expected_arrival_budget:number|null;execution_mode:string;plan_check_id?:string;input_digest?:string;persisted_at?:string;replay?:boolean};
+export type Observation={run_id:string;seconds:number;desired:number;current:number;ready:number;cpu_millicores:number;observed_at:string};
+export type RequestRow={run_id:string;id:string;phase:string;scheduled_seconds:number;status:string;dispatched_seconds?:number;finished_seconds?:number};
+export type Manifest={schema_version:number;status:string;mode:string;main_result:string;source_revision:string|null;observed_at:string|null;limits:string[];runs:{id:string;status:string;acceptance?:{status:string;errors:string[];metrics:any}}[];observations:Observation[];requests:RequestRow[];pairs:{pair:number;status:string;deadline_success_difference:number|null;lanes:any}[]};
