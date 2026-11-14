@@ -1,0 +1,110 @@
+{
+  "1": {
+    "status": "done",
+    "evidence": "https://github.com/mekala27-45/scaleproof/actions/runs/43545207072",
+    "source_revision": "9f2f7c73f6b48812880a6afe97293d515953e6ed",
+    "observation": "The first study registered three schedules and six run slots before comparison."
+  },
+  "2": {
+    "status": "done",
+    "evidence": "https://github.com/mekala27-45/scaleproof/actions/runs/43545207072",
+    "source_revision": "9f2f7c73f6b48812880a6afe97293d515953e6ed",
+    "observation": "The actual ONNX parity gates passed before and after all six executed runs."
+  },
+  "3": {
+    "status": "done",
+    "evidence": "https://github.com/mekala27-45/scaleproof/actions/runs/43545207072",
+    "source_revision": "9f2f7c73f6b48812880a6afe97293d515953e6ed",
+    "observation": "The built image served actual inference with the bounded worker and readiness gates."
+  },
+  "4": {
+    "status": "done",
+    "evidence": "https://github.com/mekala27-45/scaleproof/actions/runs/43545207072",
+    "source_revision": "9f2f7c73f6b48812880a6afe97293d515953e6ed",
+    "observation": "Ownership, localhost routing and fresh observed metrics passed the run checks."
+  },
+  "5": {
+    "status": "done",
+    "evidence": "https://github.com/mekala27-45/scaleproof/actions/runs/43552784713",
+    "source_revision": "9f2f7c73f6b48812880a6afe97293d515953e6ed",
+    "observation": "Controller-condition and fresh-metric gates passed in the HPA lanes."
+  },
+  "6": {
+    "status": "done",
+    "evidence": "https://github.com/mekala27-45/scaleproof/actions/runs/43553139541",
+    "source_revision": "9f08f2f619fff3c0af61ebaa599fbd40d3dcb408",
+    "observation": "Complete inventory, late completion and dispatch-failure fixtures passed."
+  },
+  "7": {
+    "status": "done",
+    "evidence": "https://github.com/mekala27-45/scaleproof/actions/runs/43545207072",
+    "source_revision": "9f2f7c73f6b48812880a6afe97293d515953e6ed",
+    "observation": "All six first-study runs executed; comparison acceptance still failed."
+  },
+  "8": {
+    "status": "done",
+    "evidence": "https://github.com/mekala27-45/scaleproof/actions/runs/43552784713",
+    "source_revision": "9f2f7c73f6b48812880a6afe97293d515953e6ed",
+    "observation": "Each HPA lane reached three serving pods and returned toward one ready replica."
+  },
+  "9": {
+    "status": "not done",
+    "evidence": "docs/runbooks/PUBLIC_API.md",
+    "source_revision": "9f08f2f619fff3c0af61ebaa599fbd40d3dcb408",
+    "observation": "Hosted credential transfer is awaiting specific authorization."
+  },
+  "10": {
+    "status": "done",
+    "evidence": "https://github.com/mekala27-45/scaleproof/actions/runs/43552784713",
+    "source_revision": "9f2f7c73f6b48812880a6afe97293d515953e6ed",
+    "observation": "The grader found no missing or duplicate client arrival IDs; server reconciliation remains incomplete."
+  },
+  "11": {
+    "status": "done",
+    "evidence": "https://github.com/mekala27-45/scaleproof/actions/runs/43552784713",
+    "source_revision": "9f2f7c73f6b48812880a6afe97293d515953e6ed",
+    "observation": "Fresh replacement inference was observed after 5.520 seconds."
+  },
+  "12": {
+    "status": "done",
+    "evidence": "https://github.com/mekala27-45/scaleproof/actions/runs/43553139541",
+    "source_revision": "9f08f2f619fff3c0af61ebaa599fbd40d3dcb408",
+    "observation": "Six adversarial fixtures passed; the real incomplete study was rejected."
+  },
+  "13": {
+    "status": "not done",
+    "evidence": "docs/method/REDERIVATION.md",
+    "source_revision": "9f08f2f619fff3c0af61ebaa599fbd40d3dcb408",
+    "observation": "Accepted raw rederivation is blocked by incomplete server accounting in the first study."
+  },
+  "14": {
+    "status": "not done",
+    "evidence": "https://github.com/mekala27-45/scaleproof/actions/runs/43553139541",
+    "source_revision": "9f08f2f619fff3c0af61ebaa599fbd40d3dcb408",
+    "observation": "Source-boundary and PostgreSQL tests passed; final image/public artifact checks remain open."
+  },
+  "15": {
+    "status": "not done",
+    "evidence": "https://github.com/mekala27-45/scaleproof/actions/runs/43546063227",
+    "source_revision": "2c51d2ea337eea738bd4b17e7c212f4a59eaf4c0",
+    "observation": "Nine automated browser checks passed; actual browser zoom and public-host verification remain open."
+  },
+  "16": {
+    "status": "not done",
+    "evidence": "docs/method/FIRST_STUDY.md",
+    "source_revision": "9f2f7c73f6b48812880a6afe97293d515953e6ed",
+    "observation": "The failed first attempt is documented; final corrected-study findings are pending."
+  },
+  "17": {
+    "status": "not done",
+    "evidence": "https://github.com/mekala27-45/scaleproof/actions/runs/43545207072",
+    "source_revision": "9f2f7c73f6b48812880a6afe97293d515953e6ed",
+    "observation": "First-study cleanup passed; clean reproduction and corrected-study completion remain open."
+  },
+  "18": {
+    "status": "not done",
+    "evidence": "https://github.com/mekala27-45/scaleproof/pull/1",
+    "source_revision": "9f08f2f619fff3c0af61ebaa599fbd40d3dcb408",
+    "observation": "The commit floor is met; the PR remains draft and no release or tag is claimed."
+  }
+}

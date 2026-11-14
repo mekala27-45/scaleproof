@@ -1,0 +1,98 @@
+[
+  {
+    "id": "query-note-001",
+    "query": "When does Beacon mark a sample stale?",
+    "alternate": "Can stale Beacon samples support capacity decisions?",
+    "expected_id": "note-001",
+    "group": "sensor_freshness",
+    "synthetic": true
+  },
+  {
+    "id": "query-note-002",
+    "query": "Which timestamp defines Lumen freshness?",
+    "alternate": "Does arrival time define freshness for Lumen?",
+    "expected_id": "note-002",
+    "group": "sensor_freshness",
+    "synthetic": true
+  },
+  {
+    "id": "query-note-005",
+    "query": "What selects the Harbor active revision?",
+    "alternate": "Does a newer Harbor filename activate a revision?",
+    "expected_id": "note-005",
+    "group": "document_revision",
+    "synthetic": true
+  },
+  {
+    "id": "query-note-006",
+    "query": "Does Quay retain superseded notes?",
+    "alternate": "What revision details accompany Quay search results?",
+    "expected_id": "note-006",
+    "group": "document_revision",
+    "synthetic": true
+  },
+  {
+    "id": "query-note-009",
+    "query": "What is the Jetty waiting queue limit?",
+    "alternate": "How does Jetty report excess requests?",
+    "expected_id": "note-009",
+    "group": "request_budgets",
+    "synthetic": true
+  },
+  {
+    "id": "query-note-010",
+    "query": "Where does a Cove deadline begin?",
+    "alternate": "Does late dispatch extend a Cove deadline?",
+    "expected_id": "note-010",
+    "group": "request_budgets",
+    "synthetic": true
+  },
+  {
+    "id": "query-note-013",
+    "query": "What identifies an Atlas model bundle?",
+    "alternate": "Is the Atlas package version sufficient model identity?",
+    "expected_id": "note-013",
+    "group": "model_identity",
+    "synthetic": true
+  },
+  {
+    "id": "query-note-014",
+    "query": "What runtime settings does Kelp record?",
+    "alternate": "What must happen after a Kelp provider change?",
+    "expected_id": "note-014",
+    "group": "model_identity",
+    "synthetic": true
+  },
+  {
+    "id": "query-note-017",
+    "query": "What makes a Skiff worker ready?",
+    "alternate": "Does Skiff liveness prove model readiness?",
+    "expected_id": "note-017",
+    "group": "worker_recovery",
+    "synthetic": true
+  },
+  {
+    "id": "query-note-018",
+    "query": "What proves Sail recovery?",
+    "alternate": "Which pod identities does Sail retain after loss?",
+    "expected_id": "note-018",
+    "group": "worker_recovery",
+    "synthetic": true
+  },
+  {
+    "id": "query-note-021",
+    "query": "What determines the Anchor denominator?",
+    "alternate": "Does Anchor retain failed runs?",
+    "expected_id": "note-021",
+    "group": "artifact_retention",
+    "synthetic": true
+  },
+  {
+    "id": "query-note-022",
+    "query": "When do Lagoon public receipts expire?",
+    "alternate": "Can an expired Lagoon session read a receipt?",
+    "expected_id": "note-022",
+    "group": "artifact_retention",
+    "synthetic": true
+  }
+]

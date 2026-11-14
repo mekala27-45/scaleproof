@@ -1,0 +1,98 @@
+[
+  {
+    "id": "query-note-003",
+    "query": "How does Reef handle future samples?",
+    "alternate": "Does Reef rewrite a sample with a clock error?",
+    "expected_id": "note-003",
+    "group": "sensor_freshness",
+    "synthetic": true
+  },
+  {
+    "id": "query-note-004",
+    "query": "How does Tide represent missing intervals?",
+    "alternate": "Can Tide interpolate health over a missing interval?",
+    "expected_id": "note-004",
+    "group": "sensor_freshness",
+    "synthetic": true
+  },
+  {
+    "id": "query-note-007",
+    "query": "What does Buoy do with conflicting revisions?",
+    "alternate": "Can Buoy merge contradictory instructions silently?",
+    "expected_id": "note-007",
+    "group": "document_revision",
+    "synthetic": true
+  },
+  {
+    "id": "query-note-008",
+    "query": "When does Pier verify document hashes?",
+    "alternate": "What happens when a Pier document hash mismatches?",
+    "expected_id": "note-008",
+    "group": "document_revision",
+    "synthetic": true
+  },
+  {
+    "id": "query-note-011",
+    "query": "How does Dune account for retries?",
+    "alternate": "Can a retry erase a Dune timeout?",
+    "expected_id": "note-011",
+    "group": "request_budgets",
+    "synthetic": true
+  },
+  {
+    "id": "query-note-012",
+    "query": "What happens during the Shoal drain?",
+    "alternate": "How is unfinished Shoal drain work reported?",
+    "expected_id": "note-012",
+    "group": "request_budgets",
+    "synthetic": true
+  },
+  {
+    "id": "query-note-015",
+    "query": "What tolerance does Foam use for parity?",
+    "alternate": "Can Foam parity pass when ranked IDs differ?",
+    "expected_id": "note-015",
+    "group": "model_identity",
+    "synthetic": true
+  },
+  {
+    "id": "query-note-016",
+    "query": "Which cache does Mast disable during measurement?",
+    "alternate": "Must each successful Mast request invoke the encoder?",
+    "expected_id": "note-016",
+    "group": "model_identity",
+    "synthetic": true
+  },
+  {
+    "id": "query-note-019",
+    "query": "What is the Dock shutdown order?",
+    "alternate": "How long is the Dock termination budget?",
+    "expected_id": "note-019",
+    "group": "worker_recovery",
+    "synthetic": true
+  },
+  {
+    "id": "query-note-020",
+    "query": "Does a pending Channel pod count as ready capacity?",
+    "alternate": "Which replica quantities does Channel distinguish?",
+    "expected_id": "note-020",
+    "group": "worker_recovery",
+    "synthetic": true
+  },
+  {
+    "id": "query-note-023",
+    "query": "What does Breakwater exclude from public artifacts?",
+    "alternate": "Which identities may Breakwater publish?",
+    "expected_id": "note-023",
+    "group": "artifact_retention",
+    "synthetic": true
+  },
+  {
+    "id": "query-note-024",
+    "query": "How does Estuary regenerate reports?",
+    "alternate": "What invalidates an Estuary summary?",
+    "expected_id": "note-024",
+    "group": "artifact_retention",
+    "synthetic": true
+  }
+]

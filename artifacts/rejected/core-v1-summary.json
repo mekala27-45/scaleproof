@@ -1,0 +1,693 @@
+{
+  "cleanup": {
+    "verified": true
+  },
+  "evidence_digest": "794c4a12cade2e149e2789c28019b649ec8cc1b7cb8ace06c387f8c34856e562",
+  "hash_failures": [],
+  "inventory_count": 6,
+  "main_result": "The recorded study has incomplete evidence gates. No benefit claim is eligible.",
+  "mode": "recorded_experiment",
+  "pairs": [
+    {
+      "deadline_success_difference": null,
+      "lanes": {
+        "fixed": {
+          "completed_latency_sample": 5189,
+          "deadline_success_fraction": 0.5697814867684199,
+          "dispatch_p95_ms": 564.0017139999145,
+          "scheduled": 9107,
+          "scheduled_p50_ms": 487.8911069999958,
+          "scheduled_p95_ms": 565.0124219999384,
+          "scheduled_p99_ms": 589.3716799999424,
+          "terminal_counts": {
+            "completed": 5189,
+            "dispatch_failure": 0,
+            "error": 0,
+            "rejected": 3918,
+            "timeout": 0,
+            "unfinished": 0
+          }
+        },
+        "hpa": {
+          "completed_latency_sample": 8685,
+          "deadline_success_fraction": 0.9536620182277369,
+          "dispatch_p95_ms": 458.93105999994077,
+          "scheduled": 9107,
+          "scheduled_p50_ms": 65.45087900013868,
+          "scheduled_p95_ms": 459.8079849999692,
+          "scheduled_p99_ms": 542.9837039999938,
+          "terminal_counts": {
+            "completed": 8685,
+            "dispatch_failure": 0,
+            "error": 0,
+            "rejected": 422,
+            "timeout": 0,
+            "unfinished": 0
+          }
+        }
+      },
+      "pair": 1,
+      "status": "not_done"
+    },
+    {
+      "deadline_success_difference": null,
+      "lanes": {
+        "fixed": {
+          "completed_latency_sample": 5164,
+          "deadline_success_fraction": 0.5821871476888388,
+          "dispatch_p95_ms": 565.8758019999368,
+          "scheduled": 8870,
+          "scheduled_p50_ms": 487.9476330000898,
+          "scheduled_p95_ms": 566.9645820002529,
+          "scheduled_p99_ms": 588.9403049998805,
+          "terminal_counts": {
+            "completed": 5164,
+            "dispatch_failure": 0,
+            "error": 0,
+            "rejected": 3706,
+            "timeout": 0,
+            "unfinished": 0
+          }
+        },
+        "hpa": {
+          "completed_latency_sample": 8356,
+          "deadline_success_fraction": 0.9420518602029312,
+          "dispatch_p95_ms": 488.32623800035435,
+          "scheduled": 8870,
+          "scheduled_p50_ms": 58.96756600009212,
+          "scheduled_p95_ms": 489.4601860001444,
+          "scheduled_p99_ms": 566.7143220000526,
+          "terminal_counts": {
+            "completed": 8356,
+            "dispatch_failure": 0,
+            "error": 0,
+            "rejected": 514,
+            "timeout": 0,
+            "unfinished": 0
+          }
+        }
+      },
+      "pair": 2,
+      "status": "not_done"
+    },
+    {
+      "deadline_success_difference": null,
+      "lanes": {
+        "fixed": {
+          "completed_latency_sample": 5021,
+          "deadline_success_fraction": 0.5595675916638805,
+          "dispatch_p95_ms": 582.8222239997558,
+          "scheduled": 8973,
+          "scheduled_p50_ms": 504.7547079998935,
+          "scheduled_p95_ms": 583.8171279997937,
+          "scheduled_p99_ms": 609.4011620000686,
+          "terminal_counts": {
+            "completed": 5021,
+            "dispatch_failure": 0,
+            "error": 0,
+            "rejected": 3952,
+            "timeout": 0,
+            "unfinished": 0
+          }
+        },
+        "hpa": {
+          "completed_latency_sample": 8532,
+          "deadline_success_fraction": 0.950852557673019,
+          "dispatch_p95_ms": 472.36309999971127,
+          "scheduled": 8973,
+          "scheduled_p50_ms": 58.882195999274245,
+          "scheduled_p95_ms": 473.93587099929846,
+          "scheduled_p99_ms": 548.2948690000455,
+          "terminal_counts": {
+            "completed": 8532,
+            "dispatch_failure": 0,
+            "error": 0,
+            "rejected": 441,
+            "timeout": 0,
+            "unfinished": 0
+          }
+        }
+      },
+      "pair": 3,
+      "status": "not_done"
+    }
+  ],
+  "rates": {
+    "high_rps": 29.922,
+    "low_rps": 2.805
+  },
+  "recovery": {
+    "recovered": true,
+    "recovery_seconds": 5.520435693000763
+  },
+  "runs": [
+    {
+      "acceptance": {
+        "errors": [
+          "Independent server accounting is absent or incomplete"
+        ],
+        "metrics": {
+          "admitted": 6166,
+          "desired_replica_seconds": 600,
+          "late_completions": 0,
+          "phases": {
+            "high": {
+              "completed_latency_sample": 5189,
+              "deadline_success_fraction": 0.5697814867684199,
+              "dispatch_p95_ms": 564.0017139999145,
+              "scheduled": 9107,
+              "scheduled_p50_ms": 487.8911069999958,
+              "scheduled_p95_ms": 565.0124219999384,
+              "scheduled_p99_ms": 589.3716799999424,
+              "terminal_counts": {
+                "completed": 5189,
+                "dispatch_failure": 0,
+                "error": 0,
+                "rejected": 3918,
+                "timeout": 0,
+                "unfinished": 0
+              }
+            },
+            "low_after": {
+              "completed_latency_sample": 520,
+              "deadline_success_fraction": 1,
+              "dispatch_p95_ms": 64.51038599993808,
+              "scheduled": 520,
+              "scheduled_p50_ms": 30.667861999972956,
+              "scheduled_p95_ms": 66.55931399996007,
+              "scheduled_p99_ms": 92.65419299981659,
+              "terminal_counts": {
+                "completed": 520,
+                "dispatch_failure": 0,
+                "error": 0,
+                "rejected": 0,
+                "timeout": 0,
+                "unfinished": 0
+              }
+            },
+            "low_before": {
+              "completed_latency_sample": 318,
+              "deadline_success_fraction": 1,
+              "dispatch_p95_ms": 52.15864799993142,
+              "scheduled": 318,
+              "scheduled_p50_ms": 30.476267000025814,
+              "scheduled_p95_ms": 52.384809000002974,
+              "scheduled_p99_ms": 93.2380139999367,
+              "terminal_counts": {
+                "completed": 318,
+                "dispatch_failure": 0,
+                "error": 0,
+                "rejected": 0,
+                "timeout": 0,
+                "unfinished": 0
+              }
+            },
+            "warmup": {
+              "completed_latency_sample": 176,
+              "deadline_success_fraction": 1,
+              "dispatch_p95_ms": 62.13511099997504,
+              "scheduled": 176,
+              "scheduled_p50_ms": 30.54138899997838,
+              "scheduled_p95_ms": 63.91174000001598,
+              "scheduled_p99_ms": 87.6407930000127,
+              "terminal_counts": {
+                "completed": 176,
+                "dispatch_failure": 0,
+                "error": 0,
+                "rejected": 0,
+                "timeout": 0,
+                "unfinished": 0
+              }
+            }
+          },
+          "ready_delay_seconds": null,
+          "ready_replica_seconds": 600,
+          "scale_down_delay_seconds": null,
+          "scale_up_delay_seconds": null,
+          "server_finished": 6165,
+          "unique_serving_pods": 1
+        },
+        "status": "not_done"
+      },
+      "id": "pair-1-fixed",
+      "status": "executed"
+    },
+    {
+      "acceptance": {
+        "errors": [
+          "Independent server accounting is absent or incomplete"
+        ],
+        "metrics": {
+          "admitted": 9684,
+          "desired_replica_seconds": 1290.117593967,
+          "late_completions": 0,
+          "phases": {
+            "high": {
+              "completed_latency_sample": 8685,
+              "deadline_success_fraction": 0.9536620182277369,
+              "dispatch_p95_ms": 458.93105999994077,
+              "scheduled": 9107,
+              "scheduled_p50_ms": 65.45087900013868,
+              "scheduled_p95_ms": 459.8079849999692,
+              "scheduled_p99_ms": 542.9837039999938,
+              "terminal_counts": {
+                "completed": 8685,
+                "dispatch_failure": 0,
+                "error": 0,
+                "rejected": 422,
+                "timeout": 0,
+                "unfinished": 0
+              }
+            },
+            "low_after": {
+              "completed_latency_sample": 520,
+              "deadline_success_fraction": 1,
+              "dispatch_p95_ms": 44.769505999965986,
+              "scheduled": 520,
+              "scheduled_p50_ms": 30.709828000112793,
+              "scheduled_p95_ms": 45.93377599996984,
+              "scheduled_p99_ms": 82.09123999995427,
+              "terminal_counts": {
+                "completed": 520,
+                "dispatch_failure": 0,
+                "error": 0,
+                "rejected": 0,
+                "timeout": 0,
+                "unfinished": 0
+              }
+            },
+            "low_before": {
+              "completed_latency_sample": 318,
+              "deadline_success_fraction": 1,
+              "dispatch_p95_ms": 54.94042400005128,
+              "scheduled": 318,
+              "scheduled_p50_ms": 30.54583800010846,
+              "scheduled_p95_ms": 55.820361000030516,
+              "scheduled_p99_ms": 81.96510899998088,
+              "terminal_counts": {
+                "completed": 318,
+                "dispatch_failure": 0,
+                "error": 0,
+                "rejected": 0,
+                "timeout": 0,
+                "unfinished": 0
+              }
+            },
+            "warmup": {
+              "completed_latency_sample": 176,
+              "deadline_success_fraction": 1,
+              "dispatch_p95_ms": 67.73153200015258,
+              "scheduled": 176,
+              "scheduled_p50_ms": 30.42626199999887,
+              "scheduled_p95_ms": 68.57278600009664,
+              "scheduled_p99_ms": 91.60552800000232,
+              "terminal_counts": {
+                "completed": 176,
+                "dispatch_failure": 0,
+                "error": 0,
+                "rejected": 0,
+                "timeout": 0,
+                "unfinished": 0
+              }
+            }
+          },
+          "ready_delay_seconds": 35.04421189599998,
+          "ready_replica_seconds": 1280.1152833709998,
+          "scale_down_delay_seconds": 90.10480059499992,
+          "scale_up_delay_seconds": 30.043259291999902,
+          "server_finished": 9684,
+          "unique_serving_pods": 3
+        },
+        "status": "not_done"
+      },
+      "id": "pair-1-hpa",
+      "status": "executed"
+    },
+    {
+      "acceptance": {
+        "errors": [
+          "Independent server accounting is absent or incomplete"
+        ],
+        "metrics": {
+          "admitted": 9396,
+          "desired_replica_seconds": 1290.1015511640003,
+          "late_completions": 0,
+          "phases": {
+            "high": {
+              "completed_latency_sample": 8356,
+              "deadline_success_fraction": 0.9420518602029312,
+              "dispatch_p95_ms": 488.32623800035435,
+              "scheduled": 8870,
+              "scheduled_p50_ms": 58.96756600009212,
+              "scheduled_p95_ms": 489.4601860001444,
+              "scheduled_p99_ms": 566.7143220000526,
+              "terminal_counts": {
+                "completed": 8356,
+                "dispatch_failure": 0,
+                "error": 0,
+                "rejected": 514,
+                "timeout": 0,
+                "unfinished": 0
+              }
+            },
+            "low_after": {
+              "completed_latency_sample": 544,
+              "deadline_success_fraction": 1,
+              "dispatch_p95_ms": 60.629323000284785,
+              "scheduled": 544,
+              "scheduled_p50_ms": 30.538123000155792,
+              "scheduled_p95_ms": 61.10606300001109,
+              "scheduled_p99_ms": 96.9907199997806,
+              "terminal_counts": {
+                "completed": 544,
+                "dispatch_failure": 0,
+                "error": 0,
+                "rejected": 0,
+                "timeout": 0,
+                "unfinished": 0
+              }
+            },
+            "low_before": {
+              "completed_latency_sample": 329,
+              "deadline_success_fraction": 1,
+              "dispatch_p95_ms": 59.77068099991811,
+              "scheduled": 329,
+              "scheduled_p50_ms": 30.428148000083866,
+              "scheduled_p95_ms": 59.96014600000876,
+              "scheduled_p99_ms": 86.52222899981155,
+              "terminal_counts": {
+                "completed": 329,
+                "dispatch_failure": 0,
+                "error": 0,
+                "rejected": 0,
+                "timeout": 0,
+                "unfinished": 0
+              }
+            },
+            "warmup": {
+              "completed_latency_sample": 176,
+              "deadline_success_fraction": 1,
+              "dispatch_p95_ms": 62.61719899998752,
+              "scheduled": 176,
+              "scheduled_p50_ms": 30.32561699994929,
+              "scheduled_p95_ms": 63.46645999992262,
+              "scheduled_p99_ms": 90.65702299987066,
+              "terminal_counts": {
+                "completed": 176,
+                "dispatch_failure": 0,
+                "error": 0,
+                "rejected": 0,
+                "timeout": 0,
+                "unfinished": 0
+              }
+            }
+          },
+          "ready_delay_seconds": 35.03954651799995,
+          "ready_replica_seconds": 1280.1011454280006,
+          "scale_down_delay_seconds": 90.09236494600009,
+          "scale_up_delay_seconds": 30.03932263600018,
+          "server_finished": 9396,
+          "unique_serving_pods": 3
+        },
+        "status": "not_done"
+      },
+      "id": "pair-2-hpa",
+      "status": "executed"
+    },
+    {
+      "acceptance": {
+        "errors": [
+          "Independent server accounting is absent or incomplete"
+        ],
+        "metrics": {
+          "admitted": 6137,
+          "desired_replica_seconds": 600,
+          "late_completions": 0,
+          "phases": {
+            "high": {
+              "completed_latency_sample": 5164,
+              "deadline_success_fraction": 0.5821871476888388,
+              "dispatch_p95_ms": 565.8758019999368,
+              "scheduled": 8870,
+              "scheduled_p50_ms": 487.9476330000898,
+              "scheduled_p95_ms": 566.9645820002529,
+              "scheduled_p99_ms": 588.9403049998805,
+              "terminal_counts": {
+                "completed": 5164,
+                "dispatch_failure": 0,
+                "error": 0,
+                "rejected": 3706,
+                "timeout": 0,
+                "unfinished": 0
+              }
+            },
+            "low_after": {
+              "completed_latency_sample": 544,
+              "deadline_success_fraction": 1,
+              "dispatch_p95_ms": 70.78254199996081,
+              "scheduled": 544,
+              "scheduled_p50_ms": 30.721914000082506,
+              "scheduled_p95_ms": 71.73664400011148,
+              "scheduled_p99_ms": 100.28530699992189,
+              "terminal_counts": {
+                "completed": 544,
+                "dispatch_failure": 0,
+                "error": 0,
+                "rejected": 0,
+                "timeout": 0,
+                "unfinished": 0
+              }
+            },
+            "low_before": {
+              "completed_latency_sample": 329,
+              "deadline_success_fraction": 1,
+              "dispatch_p95_ms": 56.67484700006753,
+              "scheduled": 329,
+              "scheduled_p50_ms": 30.454735000063238,
+              "scheduled_p95_ms": 57.51370400008682,
+              "scheduled_p99_ms": 73.17027299984602,
+              "terminal_counts": {
+                "completed": 329,
+                "dispatch_failure": 0,
+                "error": 0,
+                "rejected": 0,
+                "timeout": 0,
+                "unfinished": 0
+              }
+            },
+            "warmup": {
+              "completed_latency_sample": 176,
+              "deadline_success_fraction": 1,
+              "dispatch_p95_ms": 56.069869000111794,
+              "scheduled": 176,
+              "scheduled_p50_ms": 30.241170999858014,
+              "scheduled_p95_ms": 57.727513000223496,
+              "scheduled_p99_ms": 89.19029299998459,
+              "terminal_counts": {
+                "completed": 176,
+                "dispatch_failure": 0,
+                "error": 0,
+                "rejected": 0,
+                "timeout": 0,
+                "unfinished": 0
+              }
+            }
+          },
+          "ready_delay_seconds": null,
+          "ready_replica_seconds": 600,
+          "scale_down_delay_seconds": null,
+          "scale_up_delay_seconds": null,
+          "server_finished": 6137,
+          "unique_serving_pods": 1
+        },
+        "status": "not_done"
+      },
+      "id": "pair-2-fixed",
+      "status": "executed"
+    },
+    {
+      "acceptance": {
+        "errors": [
+          "Independent server accounting is absent or incomplete"
+        ],
+        "metrics": {
+          "admitted": 5946,
+          "desired_replica_seconds": 600,
+          "late_completions": 0,
+          "phases": {
+            "high": {
+              "completed_latency_sample": 5021,
+              "deadline_success_fraction": 0.5595675916638805,
+              "dispatch_p95_ms": 582.8222239997558,
+              "scheduled": 8973,
+              "scheduled_p50_ms": 504.7547079998935,
+              "scheduled_p95_ms": 583.8171279997937,
+              "scheduled_p99_ms": 609.4011620000686,
+              "terminal_counts": {
+                "completed": 5021,
+                "dispatch_failure": 0,
+                "error": 0,
+                "rejected": 3952,
+                "timeout": 0,
+                "unfinished": 0
+              }
+            },
+            "low_after": {
+              "completed_latency_sample": 514,
+              "deadline_success_fraction": 1,
+              "dispatch_p95_ms": 75.53638800027329,
+              "scheduled": 514,
+              "scheduled_p50_ms": 30.745382999725734,
+              "scheduled_p95_ms": 77.67325199995412,
+              "scheduled_p99_ms": 110.30358599987267,
+              "terminal_counts": {
+                "completed": 514,
+                "dispatch_failure": 0,
+                "error": 0,
+                "rejected": 0,
+                "timeout": 0,
+                "unfinished": 0
+              }
+            },
+            "low_before": {
+              "completed_latency_sample": 330,
+              "deadline_success_fraction": 1,
+              "dispatch_p95_ms": 79.65022100006536,
+              "scheduled": 330,
+              "scheduled_p50_ms": 31.261576999753515,
+              "scheduled_p95_ms": 80.50440099995626,
+              "scheduled_p99_ms": 102.53908299966952,
+              "terminal_counts": {
+                "completed": 330,
+                "dispatch_failure": 0,
+                "error": 0,
+                "rejected": 0,
+                "timeout": 0,
+                "unfinished": 0
+              }
+            },
+            "warmup": {
+              "completed_latency_sample": 158,
+              "deadline_success_fraction": 1,
+              "dispatch_p95_ms": 66.3728380000066,
+              "scheduled": 158,
+              "scheduled_p50_ms": 30.94654999968327,
+              "scheduled_p95_ms": 66.558254999741,
+              "scheduled_p99_ms": 83.74514199971372,
+              "terminal_counts": {
+                "completed": 158,
+                "dispatch_failure": 0,
+                "error": 0,
+                "rejected": 0,
+                "timeout": 0,
+                "unfinished": 0
+              }
+            }
+          },
+          "ready_delay_seconds": null,
+          "ready_replica_seconds": 600,
+          "scale_down_delay_seconds": null,
+          "scale_up_delay_seconds": null,
+          "server_finished": 5944,
+          "unique_serving_pods": 1
+        },
+        "status": "not_done"
+      },
+      "id": "pair-3-fixed",
+      "status": "executed"
+    },
+    {
+      "acceptance": {
+        "errors": [
+          "Independent server accounting is absent or incomplete"
+        ],
+        "metrics": {
+          "admitted": 9528,
+          "desired_replica_seconds": 1290.1190008909998,
+          "late_completions": 0,
+          "phases": {
+            "high": {
+              "completed_latency_sample": 8532,
+              "deadline_success_fraction": 0.950852557673019,
+              "dispatch_p95_ms": 472.36309999971127,
+              "scheduled": 8973,
+              "scheduled_p50_ms": 58.882195999274245,
+              "scheduled_p95_ms": 473.93587099929846,
+              "scheduled_p99_ms": 548.2948690000455,
+              "terminal_counts": {
+                "completed": 8532,
+                "dispatch_failure": 0,
+                "error": 0,
+                "rejected": 441,
+                "timeout": 0,
+                "unfinished": 0
+              }
+            },
+            "low_after": {
+              "completed_latency_sample": 514,
+              "deadline_success_fraction": 1,
+              "dispatch_p95_ms": 59.00847900011286,
+              "scheduled": 514,
+              "scheduled_p50_ms": 30.60896299950855,
+              "scheduled_p95_ms": 59.22821399940403,
+              "scheduled_p99_ms": 88.65786599972125,
+              "terminal_counts": {
+                "completed": 514,
+                "dispatch_failure": 0,
+                "error": 0,
+                "rejected": 0,
+                "timeout": 0,
+                "unfinished": 0
+              }
+            },
+            "low_before": {
+              "completed_latency_sample": 330,
+              "deadline_success_fraction": 1,
+              "dispatch_p95_ms": 66.07090999932552,
+              "scheduled": 330,
+              "scheduled_p50_ms": 30.69203900007267,
+              "scheduled_p95_ms": 67.01928899940413,
+              "scheduled_p99_ms": 93.24374899995291,
+              "terminal_counts": {
+                "completed": 330,
+                "dispatch_failure": 0,
+                "error": 0,
+                "rejected": 0,
+                "timeout": 0,
+                "unfinished": 0
+              }
+            },
+            "warmup": {
+              "completed_latency_sample": 158,
+              "deadline_success_fraction": 1,
+              "dispatch_p95_ms": 59.36478200055717,
+              "scheduled": 158,
+              "scheduled_p50_ms": 30.458793999684985,
+              "scheduled_p95_ms": 60.36824600003854,
+              "scheduled_p99_ms": 75.39132999936982,
+              "terminal_counts": {
+                "completed": 158,
+                "dispatch_failure": 0,
+                "error": 0,
+                "rejected": 0,
+                "timeout": 0,
+                "unfinished": 0
+              }
+            }
+          },
+          "ready_delay_seconds": 35.039806052999666,
+          "ready_replica_seconds": 1280.118160987,
+          "scale_down_delay_seconds": 90.10081542599983,
+          "scale_up_delay_seconds": 30.039557066999805,
+          "server_finished": 9528,
+          "unique_serving_pods": 3
+        },
+        "status": "not_done"
+      },
+      "id": "pair-3-hpa",
+      "status": "executed"
+    }
+  ],
+  "source_revision": "9f2f7c73f6b48812880a6afe97293d515953e6ed",
+  "status": "not_done"
+}
