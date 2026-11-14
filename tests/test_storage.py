@@ -27,6 +27,10 @@ class StorageTests(unittest.TestCase):
         with self.assertRaises(StoreError) as err:
             self.store.create(self.token, "abcdefgh", {**DEFAULT, "high_rps": 11})
         self.assertEqual(err.exception.status, 409)
+        with Store(self.db).connection() as connection:
+            self.assertEqual(connection.execute("SELECT COUNT(*) FROM receipts").fetchone()[0], 1)
+            outcomes = [r[0] for r in connection.execute("SELECT outcome FROM physical_attempts ORDER BY observed_at")]
+            self.assertEqual(outcomes, ["created", "replay", "conflict"])
         with self.assertRaises(StoreError):
             self.store.get(self.store.new_session(), a["plan_check_id"])
 
@@ -35,6 +39,8 @@ class StorageTests(unittest.TestCase):
             rows = list(pool.map(lambda _: Store(self.db).create(self.token, "parallel-key", DEFAULT), range(8)))
         self.assertEqual(len({r["plan_check_id"] for r in rows}), 1)
         self.assertEqual(sum(not r["replay"] for r in rows), 1)
+        with Store(self.db).connection() as connection:
+            self.assertEqual(connection.execute("SELECT COUNT(*) FROM physical_attempts").fetchone()[0], 8)
 
     def test_commit_then_process_death_readback(self):
         # Child commits and exits without delivering a receipt to its caller.

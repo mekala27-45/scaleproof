@@ -54,6 +54,7 @@ class Store:
                 c.execute("CREATE SCHEMA IF NOT EXISTS scaleproof")
             c.execute("CREATE TABLE IF NOT EXISTS sessions (token_hash TEXT PRIMARY KEY, expires DOUBLE PRECISION NOT NULL, attempts INTEGER NOT NULL DEFAULT 0)")
             c.execute("CREATE TABLE IF NOT EXISTS receipts (id TEXT PRIMARY KEY, session_hash TEXT NOT NULL REFERENCES sessions(token_hash) ON DELETE CASCADE, idem TEXT NOT NULL, input_digest TEXT NOT NULL, body TEXT NOT NULL, UNIQUE(session_hash, idem))")
+            c.execute("CREATE TABLE IF NOT EXISTS physical_attempts (id TEXT PRIMARY KEY, session_hash TEXT NOT NULL REFERENCES sessions(token_hash) ON DELETE CASCADE, idem TEXT NOT NULL, input_digest TEXT NOT NULL, outcome TEXT NOT NULL, receipt_id TEXT, observed_at TEXT NOT NULL)")
 
     @staticmethod
     def token_hash(token):
@@ -85,18 +86,31 @@ class Store:
             raise StoreError(400, "Idempotency key must contain 8 to 64 ASCII letters, digits, underscores or hyphens.")
         with self.connection(True) as c:
             session = self.session(c, token, True)
+            physical = self.sql(c, "SELECT COUNT(*) AS n FROM physical_attempts WHERE session_hash = ?", (session["token_hash"],)).fetchone()["n"]
+            if physical >= 200:
+                raise StoreError(429, "Session budget of 200 physical write attempts reached.")
             old = self.sql(c, "SELECT * FROM receipts WHERE session_hash = ? AND idem = ?", (session["token_hash"], key)).fetchone()
+            failure = None
             if old:
                 if old["input_digest"] != result["input_digest"]:
-                    raise StoreError(409, "This idempotency key already identifies a different plan.")
-                return {**json.loads(old["body"]), "replay": True}
-            if session["attempts"] >= 50:
-                raise StoreError(429, "Session budget of 50 workload checks reached.")
-            body = {**result, "plan_check_id": secrets.token_hex(16), "persisted_at": now(),
-                    "execution_mode": "deterministic_live" if self.live else "deterministic_local",
-                    "source_revision": revision(), "replay": False}
-            self.sql(c, "INSERT INTO receipts VALUES (?, ?, ?, ?, ?)", (body["plan_check_id"], session["token_hash"], key, result["input_digest"], canonical(body).decode()))
-            self.sql(c, "UPDATE sessions SET attempts = attempts + 1 WHERE token_hash = ?", (session["token_hash"],))
+                    failure = StoreError(409, "This idempotency key already identifies a different plan.")
+                    body, outcome = None, "conflict"
+                else:
+                    body, outcome = {**json.loads(old["body"]), "replay": True}, "replay"
+            elif session["attempts"] >= 50:
+                failure = StoreError(429, "Session budget of 50 workload checks reached.")
+                body, outcome = None, "receipt_budget"
+            else:
+                body = {**result, "plan_check_id": secrets.token_hex(16), "persisted_at": now(),
+                        "execution_mode": "deterministic_live" if self.live else "deterministic_local",
+                        "source_revision": revision(), "replay": False}
+                self.sql(c, "INSERT INTO receipts VALUES (?, ?, ?, ?, ?)", (body["plan_check_id"], session["token_hash"], key, result["input_digest"], canonical(body).decode()))
+                self.sql(c, "UPDATE sessions SET attempts = attempts + 1 WHERE token_hash = ?", (session["token_hash"],))
+                outcome = "created"
+            self.sql(c, "INSERT INTO physical_attempts VALUES (?, ?, ?, ?, ?, ?, ?)",
+                     (secrets.token_hex(16), session["token_hash"], key, result["input_digest"], outcome, body["plan_check_id"] if body else None, now()))
+        if failure:
+            raise failure
         return body
 
     def get(self, token, receipt_id):
