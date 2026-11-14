@@ -23,7 +23,7 @@ def run(args, timeout=120, check=True):
 
 
 def kubectl(*args, namespace=True, check=True):
-    return run(["kubectl", "--context", CONTEXT, *(["-n", "scaleproof"] if namespace else []), *args], check=check)
+    return run(["kubectl", "--context", CONTEXT, "--request-timeout=15s", *(["-n", "scaleproof"] if namespace else []), *args], check=check)
 
 
 def verify_owner():
@@ -72,8 +72,15 @@ def baseline(lane):
     kubectl("rollout","status","deployment/retrieval","--timeout=180s")
     # Wait for metrics and real return to a single ready baseline, not a sleep as proof.
     deadline = time.monotonic()+180
+    attempts=[]
     while time.monotonic()<deadline:
-        row=observe(0)
+        try:
+            row=observe(0)
+        except RuntimeError as exc:
+            attempts.append(dict(observed_at=now(),error=str(exc)))
+            write_json(ROOT/"artifacts/raw/baseline-attempts.json",attempts)
+            time.sleep(3)
+            continue
         if row["desired"]==row["ready"]==row["current"]==1 and len(row["pods"])==1 and row["metrics_age_seconds"]<45:
             break
         time.sleep(3)
@@ -82,7 +89,13 @@ def baseline(lane):
         kubectl("apply","-f",str(ROOT/"infra/local/hpa.json"))
         deadline=time.monotonic()+120
         while time.monotonic()<deadline:
-            row=observe(0)
+            try:
+                row=observe(0)
+            except RuntimeError as exc:
+                attempts.append(dict(observed_at=now(),error=str(exc)))
+                write_json(ROOT/"artifacts/raw/baseline-attempts.json",attempts)
+                time.sleep(3)
+                continue
             if row["hpa_active"] and row["desired"]==row["ready"]==1: break
             time.sleep(3)
         else: raise RuntimeError("HPA baseline did not become active")
