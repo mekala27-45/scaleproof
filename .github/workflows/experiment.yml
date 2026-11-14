@@ -50,7 +50,7 @@ jobs:
         run: |
           if test -f artifacts/private/ownership.json; then
             mkdir -p artifacts/raw/diagnostics
-            kubectl --context kind-scaleproof -n scaleproof logs -l app=scaleproof --all-containers --prefix > artifacts/raw/diagnostics/pod-logs.txt 2>&1 || true
+            kubectl --context kind-scaleproof -n scaleproof logs -l app=retrieval --all-containers --prefix --tail=200 > artifacts/raw/diagnostics/pod-logs.txt 2>&1 || true
             kubectl --context kind-scaleproof -n scaleproof get pods,hpa,events -o yaml > artifacts/raw/diagnostics/cluster.yaml 2>&1 || true
             cat artifacts/raw/diagnostics/pod-logs.txt
           fi
