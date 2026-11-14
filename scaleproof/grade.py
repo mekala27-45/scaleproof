@@ -30,7 +30,7 @@ def main():
                           deadline_success_difference=(outcome["hpa"]["deadline_success_fraction"]-outcome["fixed"]["deadline_success_fraction"]) if accepted else None))
     recovery=read_json(ROOT/"artifacts/raw/recovery.json") if (ROOT/"artifacts/raw/recovery.json").exists() else None
     accepted=all(p["status"]=="done" for p in pairs) and bool(recovery and recovery["recovered"])
-    manifest=dict(schema_version=1,experiment_id="core-v1",mode="recorded_experiment",status="done" if accepted else "not_done",source_revision=plan["source_revision"],observed_at=now(),
+    manifest=dict(schema_version=1,experiment_id=plan.get("experiment_id","core-v1"),mode="recorded_experiment",status="done" if accepted else "not_done",source_revision=plan["source_revision"],observed_at=now(),
                   plan_digest=plan["plan_digest"],identity=plan["identity"],runs=runs,pairs=pairs,observations=public_observations,requests=public_requests,recovery=recovery,
                   limits=["One shared local CPU host and three paired repetitions.","Descriptive comparison only. Replica-seconds are not money or energy.","Synthetic operations requests do not measure general retrieval quality."],
                   main_result="All registered runs passed the evidence gates." if accepted else "The recorded study has incomplete evidence gates. No benefit claim is eligible.")
