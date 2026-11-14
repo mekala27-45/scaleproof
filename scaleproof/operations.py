@@ -114,3 +114,14 @@ def capture_logs(seen):
             if key not in seen:
                 seen.add(key); fresh.append(event)
     return fresh
+
+def read_spooled_events(run_id):
+    verify_owner()
+    # Fixed path on our disposable node; no visitor-controlled shell or path input.
+    raw=run(["docker","exec","scaleproof-control-plane","sh","-c","cat /var/local/scaleproof-evidence/*.jsonl"]).stdout
+    events=[]
+    for line in raw.splitlines():
+        event=json.loads(line)
+        if event.get("request_id","").startswith(run_id+":"): events.append(event)
+    if not events: raise ValueError("Durable independent server events are absent")
+    return events

@@ -10,11 +10,13 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, ConfigDict, Field
 from .common import ROOT, canonical, now, revision
 from .inference import Kernel
+from .telemetry import append_event
 
 
 def log(event, **fields):
     record = {"event": event, "observed_at": now(), "pod_uid": os.getenv("POD_UID", "local")}
     record.update(fields)
+    append_event(record)
     print(json.dumps(record), flush=True)
 
 

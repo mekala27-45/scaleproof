@@ -3,7 +3,7 @@ import json
 import time
 from .common import ROOT,read_json,write_json,digest,file_digest,now
 from .load import execute
-from .operations import baseline,observe,capture_logs,verify_owner,kubectl
+from .operations import baseline,observe,capture_logs,verify_owner,kubectl,read_spooled_events
 from .parity import check_parity
 
 
@@ -42,7 +42,7 @@ async def run_one(item,plan):
             await asyncio.sleep(max(0,5-(time.monotonic()-cycle)))
         ledger=await loading
         observations.append(observe(time.monotonic()-start))
-        events.extend(capture_logs(seen))
+        events=read_spooled_events(item["id"])
         events=[e for e in events if e.get("request_id","").startswith(item["id"]+":") or e.get("event") in ("model_ready","observer_error")]
         write_json(folder/"ledger.json",ledger)
         write_json(folder/"observations.json",observations)

@@ -12,6 +12,10 @@ def main():
         raise RuntimeError("Host needs at least two CPU cores and five GiB for the registered candidate")
     run(["kind","create","cluster","--name",CLUSTER,"--image",NODE_IMAGE,"--config","infra/local/kind.json","--wait","180s"],timeout=300)
     run(["kind","load","docker-image","scaleproof:local","--name",CLUSTER],timeout=180)
+    # The node was created by this invocation, before any workload is admitted.
+    run(["docker","exec","scaleproof-control-plane","mkdir","-p","/var/local/scaleproof-evidence"])
+    run(["docker","exec","scaleproof-control-plane","chown","10001:10001","/var/local/scaleproof-evidence"])
+    run(["docker","exec","scaleproof-control-plane","chmod","0700","/var/local/scaleproof-evidence"])
     image=read_json(ROOT/"artifacts/raw/image.json")
     workload=read_json(ROOT/"infra/local/workload.json")
     for item in workload["items"]:
