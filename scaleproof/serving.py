@@ -24,6 +24,7 @@ class Job:
     query: str
     admitted: float
     future: asyncio.Future
+    include_embedding: bool = False
     expired: bool = False
 
 
@@ -32,6 +33,7 @@ class InferenceRequest(BaseModel):
     query: str = Field(min_length=1, max_length=1000)
     request_id: str = Field(min_length=1, max_length=100, pattern=r"^[a-zA-Z0-9:_-]+$")
     timeout_seconds: float = Field(ge=1, le=10)
+    include_embedding: bool = False
 
 
 @asynccontextmanager
@@ -61,6 +63,8 @@ async def lifespan(app):
                               image_identity=os.getenv("IMAGE_IDENTITY", "unavailable"), queue_wait_ms=(started-job.admitted)*1000,
                               service_ms=(time.monotonic()-started)*1000)
                 log("finished", request_id=job.request_id, late=job.expired, **{k:v for k,v in result.items() if k not in ("embedding", "request_id")})
+                if not job.include_embedding:
+                    result.pop("embedding", None)
                 if not job.future.done():
                     job.future.set_result(result)
             except Exception as exc:
@@ -102,7 +106,7 @@ def ready():
 async def infer(payload: InferenceRequest):
     if not app.state.accepting:
         raise HTTPException(503, "Worker is draining")
-    job = Job(payload.request_id, payload.query, time.monotonic(), asyncio.get_running_loop().create_future())
+    job = Job(payload.request_id, payload.query, time.monotonic(), asyncio.get_running_loop().create_future(), payload.include_embedding)
     try:
         app.state.queue.put_nowait(job)
     except asyncio.QueueFull:
