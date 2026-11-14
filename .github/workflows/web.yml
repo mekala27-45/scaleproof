@@ -1,0 +1,34 @@
+name: Evidence reader
+on:
+  push:
+    branches: [build/scaleproof, main]
+    paths: ['web/**', 'tests/browser/**', 'artifacts/manifests/**', '.github/workflows/web.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  web:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22.16.0'
+      - run: cp artifacts/manifests/core-v1.json web/public/evidence.json
+      - run: npm install
+        working-directory: web
+      - run: npm run build
+        working-directory: web
+      - run: npx playwright install --with-deps chromium
+        working-directory: web
+      - run: npm test
+        working-directory: web
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: scaleproof-reader
+          path: |
+            web/dist
+            web/browser-results.json
+            web/package-lock.json
