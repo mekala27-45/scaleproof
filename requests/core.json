@@ -1,0 +1,1 @@
+{"schema_version":1,"mode":"smoke","request_id":"initial-owned-smoke-2026-11-13","target":"owned-kind-localhost","maximum_minutes":15,"paid_resources":false,"reason":"Verify real CPU model, Service routing, metrics and ready-capacity transitions before a full registered study."}
