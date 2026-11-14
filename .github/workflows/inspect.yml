@@ -1,0 +1,26 @@
+name: Retained evidence review
+on:
+  push:
+    branches: [build/scaleproof]
+    paths: [.github/workflows/inspect.yml]
+permissions:
+  contents: read
+  actions: read
+jobs:
+  review:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: 543805b331a5ab76a3df292968d5545d4987cb9b
+          persist-credentials: false
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          repository: mekala27-45/scaleproof
+          run-id: 43545207072
+          name: scaleproof-evidence-9f2f7c73f6b48812880a6afe97293d515953e6ed
+          path: retained
+          github-token: ${{ github.token }}
+      - name: Review fixed offline summary
+        run: python3 scripts/inspect_evidence.py
