@@ -1,4 +1,5 @@
 import asyncio
+import json
 import time
 from .common import ROOT,read_json,write_json,digest,file_digest,now
 from .load import execute
@@ -29,11 +30,15 @@ async def run_one(item,plan):
             try:
                 row=await asyncio.to_thread(observe,time.monotonic()-start)
                 observations.append(row)
-                events.extend(await asyncio.to_thread(capture_logs,seen))
+                fresh=await asyncio.to_thread(capture_logs,seen)
+                events.extend(fresh)
+                def checkpoint():
+                    with (folder/"server-events.jsonl").open("a",encoding="utf-8") as stream:
+                        for event in fresh: stream.write(json.dumps(event,separators=(",",":"))+"\n")
+                await asyncio.to_thread(checkpoint)
             except Exception as exc:
                 events.append(dict(event="observer_error",error=str(exc),observed_at=now()))
             write_json(folder/"observations.json",observations)
-            write_json(folder/"server-events.json",events)
             await asyncio.sleep(max(0,5-(time.monotonic()-cycle)))
         ledger=await loading
         observations.append(observe(time.monotonic()-start))
