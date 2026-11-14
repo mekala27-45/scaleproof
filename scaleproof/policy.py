@@ -1,5 +1,5 @@
 """Pure admission policy. This module has no execution dependency."""
-from decimal import Decimal, ROUND_CEILING
+from fractions import Fraction
 import math
 from .common import digest
 
@@ -40,8 +40,8 @@ def check(payload):
     budget = None
     if phase_ok and p["low_rps"] > 0 and p["high_rps"] > 0:
         high = p["high_end_seconds"] - p["high_start_seconds"]
-        budget = int((Decimal(str(p["low_rps"])) * (p["duration_seconds"] - high)
-                      + Decimal(str(p["high_rps"])) * high).to_integral_value(rounding=ROUND_CEILING))
+        budget = math.ceil(Fraction(str(p["low_rps"])) * (p["duration_seconds"] - high)
+                           + Fraction(str(p["high_rps"])) * high)
     rules.append(("arrival_budget", budget is not None and budget <= MAX_ARRIVALS,
                   "The integrated-rate policy budget must not exceed 50000 arrivals."))
     return {"decision": "accepted" if all(r[1] for r in rules) else "rejected",

@@ -21,3 +21,6 @@ class PolicyTests(unittest.TestCase):
     def test_fractional_budget_rounds_up(self):
         p = {**DEFAULT, "low_rps": .101, "high_rps": .201}
         self.assertEqual(check(p)["expected_arrival_budget"], 103)
+
+    def test_tiny_positive_rate_is_not_rounded_out_of_ceiling(self):
+        self.assertEqual(check({**DEFAULT, "low_rps": 1e-30, "high_rps": 1})["expected_arrival_budget"], 301)

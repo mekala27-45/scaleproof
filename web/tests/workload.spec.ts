@@ -1,4 +1,10 @@
 import {test,expect} from '@playwright/test';
+import {defaultPlan,preview} from '../src/policy';
+test('policy uses exact decimal ceiling and strict numeric fields',()=>{
+ expect(preview({...defaultPlan,low_rps:1e-30,high_rps:1}).expected_arrival_budget).toBe(301);
+ expect(preview({...defaultPlan,low_rps:.101,high_rps:.201}).expected_arrival_budget).toBe(103);
+ expect(()=>preview({...defaultPlan,max_replicas:1.5})).toThrow();
+});
 for(const width of [390,768,1440]) for(const theme of ['light','dark']) {
  test(`workload and evidence views ${width} ${theme}`,async({page})=>{
   await page.setViewportSize({width,height:1000});
