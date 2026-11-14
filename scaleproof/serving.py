@@ -13,7 +13,9 @@ from .inference import Kernel
 
 
 def log(event, **fields):
-    print(json.dumps(dict(event=event, observed_at=now(), pod_uid=os.getenv("POD_UID", "local"), **fields)), flush=True)
+    record = {"event": event, "observed_at": now(), "pod_uid": os.getenv("POD_UID", "local")}
+    record.update(fields)
+    print(json.dumps(record), flush=True)
 
 
 @dataclass
