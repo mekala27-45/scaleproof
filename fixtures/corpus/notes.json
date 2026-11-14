@@ -1,0 +1,218 @@
+[
+  {
+    "id": "note-001",
+    "version": 1,
+    "group": "sensor_freshness",
+    "title": "Beacon freshness",
+    "text": "Beacon marks a sensor stale after 45 seconds without a sample. A stale sample cannot support a capacity decision.",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "note-002",
+    "version": 1,
+    "group": "sensor_freshness",
+    "title": "Lumen timestamps",
+    "text": "Lumen stores capture time and arrival time separately. Its freshness rule uses capture time.",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "note-003",
+    "version": 1,
+    "group": "sensor_freshness",
+    "title": "Reef clock check",
+    "text": "Reef rejects a sample captured more than five seconds in the future. It records the clock error without changing the sample.",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "note-004",
+    "version": 1,
+    "group": "sensor_freshness",
+    "title": "Tide gaps",
+    "text": "Tide retains a missing interval as unknown. It does not interpolate a healthy reading across the gap.",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "note-005",
+    "version": 1,
+    "group": "document_revision",
+    "title": "Harbor revision",
+    "text": "Harbor serves only the revision named in the signed manifest. A newer filename alone does not update the active revision.",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "note-006",
+    "version": 1,
+    "group": "document_revision",
+    "title": "Quay supersession",
+    "text": "Quay retains superseded notes for audit. Search results identify the selected revision and its effective date.",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "note-007",
+    "version": 1,
+    "group": "document_revision",
+    "title": "Buoy conflicts",
+    "text": "Buoy flags contradictory revisions for review. It never merges conflicting instructions silently.",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "note-008",
+    "version": 1,
+    "group": "document_revision",
+    "title": "Pier document hash",
+    "text": "Pier verifies each document hash before indexing. A mismatched document stops readiness.",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "note-009",
+    "version": 1,
+    "group": "request_budgets",
+    "title": "Jetty queue",
+    "text": "Jetty admits at most eight waiting requests per worker. Further requests receive an explicit overload rejection.",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "note-010",
+    "version": 1,
+    "group": "request_budgets",
+    "title": "Cove deadlines",
+    "text": "Cove measures deadlines from scheduled arrival. A delayed dispatch does not grant a later deadline.",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "note-011",
+    "version": 1,
+    "group": "request_budgets",
+    "title": "Dune retries",
+    "text": "Dune records every physical attempt. A logical retry does not remove the original timeout from the ledger.",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "note-012",
+    "version": 1,
+    "group": "request_budgets",
+    "title": "Shoal drain",
+    "text": "Shoal stops new arrivals during its final drain. Work unfinished at the drain deadline remains unfinished in the report.",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "note-013",
+    "version": 1,
+    "group": "model_identity",
+    "title": "Atlas bundle",
+    "text": "Atlas identifies a model by revision and hashes of all executed files. The package version alone is insufficient.",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "note-014",
+    "version": 1,
+    "group": "model_identity",
+    "title": "Kelp provider",
+    "text": "Kelp records the CPU execution provider and thread count. A provider change requires a new environment record.",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "note-015",
+    "version": 1,
+    "group": "model_identity",
+    "title": "Foam parity",
+    "text": "Foam compares direct and served embeddings with an absolute tolerance of one hundred-thousandth. Different ranked IDs fail parity.",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "note-016",
+    "version": 1,
+    "group": "model_identity",
+    "title": "Mast cache",
+    "text": "Mast keeps weights loaded but disables query-result caches during measurement. Each successful request invokes the encoder.",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "note-017",
+    "version": 1,
+    "group": "worker_recovery",
+    "title": "Skiff readiness",
+    "text": "Skiff becomes ready only after loading its model, validating the corpus and completing an encoder probe. Liveness alone is insufficient.",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "note-018",
+    "version": 1,
+    "group": "worker_recovery",
+    "title": "Sail replacement",
+    "text": "Sail records the lost pod UID and its replacement UID. Recovery requires a fresh inference from the replacement.",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "note-019",
+    "version": 1,
+    "group": "worker_recovery",
+    "title": "Dock shutdown",
+    "text": "Dock stops admission before draining in-flight work. Its termination budget is thirty seconds.",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "note-020",
+    "version": 1,
+    "group": "worker_recovery",
+    "title": "Channel capacity",
+    "text": "Channel distinguishes desired replicas from ready replicas. A pending pod contributes no ready capacity.",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "note-021",
+    "version": 1,
+    "group": "artifact_retention",
+    "title": "Anchor raw data",
+    "text": "Anchor retains failed runs alongside successful runs. Its inventory determines the denominator.",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "note-022",
+    "version": 1,
+    "group": "artifact_retention",
+    "title": "Lagoon expiry",
+    "text": "Lagoon expires public receipts after twenty-four hours. Expired sessions cannot read those receipts.",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "note-023",
+    "version": 1,
+    "group": "artifact_retention",
+    "title": "Breakwater secrets",
+    "text": "Breakwater excludes credentials and cluster configuration from public artifacts. It publishes sanitized identities only.",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  },
+  {
+    "id": "note-024",
+    "version": 1,
+    "group": "artifact_retention",
+    "title": "Estuary rederive",
+    "text": "Estuary regenerates reports from raw evidence in a clean checkout. Changed input hashes invalidate the accepted summary.",
+    "synthetic": true,
+    "license": "CC0-1.0"
+  }
+]
